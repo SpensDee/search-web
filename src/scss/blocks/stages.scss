@@ -1,0 +1,113 @@
+.stages__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    'item1 item2 item3 .'
+    '. item4 item5 item6';
+    grid-gap: 23px;
+    
+
+    @include lg() {
+        grid-gap: 17px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @include xs() {
+        grid-gap: 10px;
+    }
+
+    @include child-counter('> li', '0', '\a') {
+        overflow: hidden;
+        color: var(--accent-color);
+        align-self: flex-end;
+        line-height: 0.8;
+        font-weight: 200;
+        margin-bottom: -6%;
+        font-size: 8vw;
+
+        @media(min-width: 1780px) {
+            font-size: 150px;
+        }
+
+        @include xl() {
+            font-size: 7vw;
+        }
+
+        @include lg() {
+            display: block;
+            margin-bottom: -4%;
+            font-size: 12vw;
+        }
+
+        @media(max-width: 390px) {
+            font-size: 50px;
+            margin-bottom: -6px;
+        }
+    }
+}
+.stages__list-item {
+    transform-style: preserve-3d;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    padding: 21px;
+    padding-bottom: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    aspect-ratio: 428 / 196;
+    border-radius: 20px;
+    background-color: #fff;
+    column-gap: 10px;
+
+    & > * {
+        width: 50%;
+    }
+
+    @include xl() {
+        padding: 20px 22px;
+        padding-bottom: 0;
+    }
+
+    @include lg() {
+       width: calc(50% - 17px);
+       flex-flow: column-reverse nowrap;
+       aspect-ratio: 175 / 106;
+    }
+
+    @include sm() {
+        padding: 10px 13px;
+        padding-bottom: 0;
+    }
+
+    @include xs() {
+        width: calc(50% - 10px);
+        border-radius: 10px;
+    }
+
+    @media(max-width: 360px) {
+        aspect-ratio: 1 / 1;
+    }
+
+    @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          grid-area: item#{$i};
+        }
+    }
+}
+
+
+.stages__text {
+    @include xl() {
+        font-size: 16px;
+    }
+
+    @include lg() {
+        width: 100%;
+    }
+
+    @include sm() {
+        font-size: 14px;
+    }
+}

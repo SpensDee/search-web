@@ -1,0 +1,29 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy
+        run: |
+          cd dist
+          git init
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push -f git@github.com:searchWeb.git gh-pages
