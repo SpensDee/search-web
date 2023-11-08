@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 
 body {
@@ -126,6 +126,7 @@ main {
 
     @include sm() {
       font-size: 46px;
+      line-height: 1.2;
     }
   }
 }
