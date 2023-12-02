@@ -1,0 +1,78 @@
+.help__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  @extend .title;
+  column-gap: 60px;
+
+  .title {
+    margin-bottom: 0;
+  }
+}
+.help__decor {
+  color: var(--secondary-color);
+  font-size: 20px;
+
+  @include xl() {
+    font-size: 16px;
+  }
+  @include lg() {
+    display: none;
+  }
+}
+.help__list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "item1 . item2 . . . ."
+    ". . item3 . item4 . item5";
+
+  @include sm() {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    width: 100%;
+    max-width: 460px;
+  }
+}
+
+.help__list-item {
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      grid-area: item#{$i};
+    }
+  }
+
+  @include sm() {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &:nth-child(odd) {
+      margin-left: auto;
+      align-items: flex-end;
+    }
+  }
+}
+
+.help__list-item-count {
+  font-size: 194px;
+  letter-spacing: -9.7px;
+  line-height: normal;
+  font-weight: 400;
+
+  @include lg() {
+    font-size: 142.112px;
+
+    letter-spacing: -7.106px;
+  }
+  @include sm() {
+    font-size: 140px;
+  }
+
+  @include mob() {
+    font-size: 140px;
+  }
+}

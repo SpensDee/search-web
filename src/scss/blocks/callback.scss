@@ -1,0 +1,82 @@
+.callback {
+    display: flex;
+    column-gap: 40px;
+    @extend .page__section;
+
+    @include lg() {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @include xs() {
+        padding-inline: 15px;
+    }
+
+    & > * {
+        width: 50%;
+    }
+
+    & .title {
+        max-width: 708px;
+
+        @include lg() {
+            max-width: 100%;
+            width: 100%;
+            z-index: 2;
+            position: relative;
+        }
+    }
+
+    &__title {
+        @include lg() {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}
+
+
+.callback__form {
+    max-width: 540px;
+    z-index: 1;
+
+    @include lg() {
+        max-width: 100%;
+        width: min(500px, 100%);   
+    }
+}
+
+.curve {
+    z-index: -1;
+    pointer-events: none;
+    width: 100vw;
+    height: auto;
+    overflow: visible;
+    transform: rotate(-4.131deg);
+    position: absolute;
+    inset: 12% -10% auto 0;
+
+    @media(min-width: 2300px) {
+        inset: 12% -10% auto -5%;
+    }
+
+    @include lg() {
+        transform: rotate(344deg);
+        left: 0;
+        top: 0;
+        width: 200%;
+    }
+
+    & path {
+        @include xs() {
+            transform: rotate(333deg) translate(-60%, 69%);
+        }
+    }
+
+    & textPath {
+        line-height: 1;
+        font-size: 22px;
+        position: relative;
+        top: 2px;
+    }
+}

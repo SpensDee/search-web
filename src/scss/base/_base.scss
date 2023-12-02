@@ -26,8 +26,12 @@ main {
 .header,
 .footer,
 .page__section {
-  max-width: 1780px;
+  max-width: 1600px;
   margin-inline: auto;
+
+  @media(min-width: 2047px) {
+    max-width: 1780px;
+  }
 
   @media (max-width: 1820px) {
     padding-inline: 20px;
@@ -118,11 +122,18 @@ main {
   }
 
   &--xl {
-    // font-size: 149px;
-    font-size: 7.7vw;
+    font-size: 7vw;
     letter-spacing: -2.98px;
     line-height: 1;
     margin-bottom: 0;
+
+    @media(min-width: 2047px) {
+      font-size: 7.7vw;
+    }
+
+    @media(min-width: 1480px) {
+      font-size: 117px;
+    }
 
     @include sm() {
       font-size: 46px;

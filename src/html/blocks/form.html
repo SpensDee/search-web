@@ -1,0 +1,33 @@
+<form action="https://script.google.com/macros/s/AKfycbyHv9588BKVjTM3sxohBrY_JLs9eC2eyUb-qV1TFme5ztzqYu9CCkCc4UuuDhga3iUZHg/exec" method="POST" name="top_form" autocomplete="on" id="top_form">
+  <input type="radio" name="type" value="Пошукач" id="job_seeker" checked />
+  <label for="job_seeker">Пошукач</label>
+  <input type="radio" name="type" value="Работодавець" id="employer" />
+  <label for="employer">Роботодавець</label>
+
+  <input type="hidden" name="submitted">
+
+  <input
+    name="name"
+    type="text"
+    placeholder="Імʼя"
+    minlength="2"
+    title="Вводіть лише літери без цифр та спецсимволів"
+    pattern="[а-яА-Яa-zA-ZіІїЇґҐёЁ\s]+"
+    required
+  />
+  <input 
+    name="telegram" 
+    type="text" 
+    placeholder="Телеграм" 
+    required />
+
+  <input
+    name="tell"
+    type="tel"
+    placeholder="Номер телефону"
+    inputmode="tel"
+    required
+  />
+  <button type="submit" class="btn">Знайти роботу</button>
+</form>
+
